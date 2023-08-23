@@ -27,7 +27,6 @@
     {"s": "Croquet", "l": "Croquet Mallet"},
     {"s": "Monkey", "l": "Monkey Bars"},
     {"s": "Rein", "l": "Reindeer"},
-    {"s": "Lady", "l": "Lady Lumps"},
     {"s": "Ship", "l": "Shipmate"},
     {"s": "Car", "l": "Racecar"},
     {"s": "Fire", "l": "Firewood"},
@@ -73,7 +72,7 @@
     {"s": "Bull", "l": "Bull's Eye"},
     {"s": "Corona", "l": "Coronavirus"},
     {"s": "Pink", "l": "Pinky"},
-    {"s": "Pill", "l": "Pill Pocket"},
+    {"s": "Pig", "l": "Piggy Bank"},
     {"s": "Man", "l": "Best Man"},
     {"s": "Burn", "l": "Sunburn"},
     {"s": "Port", "l": "Teleport"},
@@ -118,7 +117,6 @@
     {"s": "Fruit", "l": "Grapefruit"},
     {"s": "Tea", "l": "Teaspoon"},
     {"s": "Tail", "l": "Tailgate"},
-    {"s": "Wood", "l": "Woodard"},
     {"s": "Fish", "l": "Starfish"},
     {"s": "Coat", "l": "Raincoat"},
     {"s": "Dumb", "l": "Dumbo"},
@@ -200,5 +198,10 @@
     {"s": "Cart", "l": "Cartwheel"},
     {"s": "Go", "l": "Cargo"},
     {"s": "Home", "l": "Homemade"},
-    {"s": "Flies", "l": "Fireflies"}
+    {"s": "Flies", "l": "Fireflies"},
+    {"s": "Earth", "l": "Earthquake"},
+    {"s": "Bee", "l": "Beetle"},
+    {"s": "Bee", "l": "Beehive"},
+    {"s": "Bee", "l": "Beekeeper"},
+    {"s": "Bee", "l": "Beetroot"}
 ]

@@ -1,0 +1,151 @@
+
+
+
+img.fuse {
+    top: 13vh;
+
+    /* animation-name: burn;
+    animation-duration: 90s; */
+}
+
+img.quit {
+    left: 0vh;
+    width: 30vh;
+    top: 70vh;
+    border-radius: 0% 0% 1000% 0%;
+}
+
+img.startround {
+    top: 75vh;
+    border-radius: 1000% 0% 0% 0%;
+}
+
+img.short {
+    top: 16vh;
+    border-radius: 50% 50% 70% 35%;
+}
+
+img.long {
+    top: 42vh;
+}
+
+img.fail {
+    top: 75vh;
+    border-radius: 1000% 0% 0% 0%;
+}
+
+.text {
+    font-size: 3vh;
+    font-family: "Itim", sans-serif;
+    color: #0e010d;
+    position: absolute;
+    text-align: center;
+    width: 10vh;
+}
+
+#round {
+    top: 3vh;
+    left: 5vh;
+}
+
+#roundnum {
+    top: 6vh;
+    left: 5vh;
+}
+
+#player {
+    top: 3vh;
+    right: 5vh;
+}
+
+#playernum {
+    top: 6vh;
+    right: 5vh;
+}
+
+#time {
+    top: 14.5vh;
+    left: 31vh;
+}
+
+
+div.word {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    text-align: center;
+    
+    width: 100%;
+    font-size: 6vh;
+}
+
+#shortword {
+    top: 27vh;
+}
+
+#longword {
+    top: 55vh;
+    height: 20vh;
+    width: 80%;  
+}
+
+.control {
+    position: absolute !important;
+    height: 5vh;
+    width: 5vh;
+    top: 14vh;
+    left: 2vh;
+    color: blue;
+
+    /* display: block;
+    padding: 5vh 5vh; */
+}
+
+.icon {
+    color: var(--accent);
+}
+
+
+
+#mvp {
+    top: 20vh;
+    left: var(--flagmargin);
+
+    width: var(--flagwidth);
+}
+
+#lvp {
+    top: 45vh;
+    left: var(--flagmargin);
+    width: var(--flagwidth);
+}
+
+#best {
+    top: 45vh;
+    right: var(--flagmargin);
+    width: var(--flagwidth);
+}
+
+#worst {
+    top: 20vh;
+    right: var(--flagmargin);
+    width: var(--flagwidth);
+}
+
+#winner {
+    top: 19.5vh;
+}
+
+#cont {
+    top: 70vh;
+    left: 0vh;
+    width: 80%;
+}
+
+#endgame {
+    top: 75vh;
+    right: 0vh;
+    width: 80%
+}
