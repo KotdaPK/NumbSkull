@@ -79,6 +79,8 @@ div.word {
     
     width: 100%;
     font-size: 6vh;
+
+    z-index: 1;
 }
 
 #shortword {
@@ -107,45 +109,88 @@ div.word {
     color: var(--accent);
 }
 
-
+#drumroll {
+    top: 3vh;
+    font-size: 2.5vh;
+}
+#winner {
+    top: 9vh;
+    font-size: 6vh;
+}
 
 #mvp {
     top: 20vh;
     left: var(--flagmargin);
-
     width: var(--flagwidth);
 }
-
 #lvp {
-    top: 45vh;
+    top: 50vh;
     left: var(--flagmargin);
     width: var(--flagwidth);
 }
 
 #best {
-    top: 45vh;
+    top: 50vh;
     right: var(--flagmargin);
     width: var(--flagwidth);
 }
-
 #worst {
     top: 20vh;
     right: var(--flagmargin);
     width: var(--flagwidth);
 }
 
-#winner {
-    top: 19.5vh;
+
+#mvpPlayer {
+    top: 21vh;
+    right: var(--wordmargin);
+    font-size: var(--wordsize);
+    text-align: left;
+}
+
+#lvpPlayer {
+    top: 64vh;
+    right: var(--wordmargin);
+    font-size: var(--wordsize);
+    text-align: left;
+}
+
+#bestTurn {
+    top: 64vh;
+    left: var(--wordmargin);
+    font-size: var(--wordsize);
+    text-align: right;
+}
+
+#worstTurn {
+    top: 21vh;
+    left: var(--wordmargin);
+    font-size: var(--wordsize);
+    text-align: right;
+}
+
+
+#scores {
+    top: 21vh;
+    width: 105%
+}
+#oddscore {
+    top: 30vh;
+    width: 80%;
+}
+#evenscore {
+    top: 55vh;
+    width: 80%;
 }
 
 #cont {
-    top: 70vh;
+    top: 73vh;
     left: 0vh;
     width: 80%;
 }
 
 #endgame {
-    top: 75vh;
+    top: 78vh;
     right: 0vh;
     width: 80%
 }

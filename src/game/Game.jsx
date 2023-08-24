@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef, useReducer } from 'react';
-import { Button, IconButton } from '@mui/material';
+import { useState, useEffect, useReducer } from 'react';
+import { IconButton } from '@mui/material';
 import { useNavigate } from "react-router-dom";
 
 import PlayArrowRoundedIcon from '@mui/icons-material/PlayArrowRounded';
@@ -19,7 +19,7 @@ import best from '../assets/best.svg';
 import worst from '../assets/worst.svg';
 import mvp from '../assets/mvp.svg';
 import lvp from '../assets/lvp.svg';
-import winner from '../assets/winner.svg';
+import scores from '../assets/scores.svg';
 import endgame from '../assets/endgame.svg';
 import cont from '../assets/continue.svg';
 
@@ -39,19 +39,44 @@ function reducer(state, action) {
         case 'next':
             return { ...state, phase: 2, };
         case 'end': {
-            let newRound;
-            if (state.player === state.players.length - 1)
-                newRound = state.round + 1;
-            else
-                newRound = state.round;
             let player = (state.player + 1) % state.players.length;
+
+            let newRound = state.round;
+            if (state.player === state.players.length - 1)
+                newRound++;
+
+            let thisTurn = 0;
+            for (let i = 0; i < state.players[state.player].cards.length; i++) {
+                thisTurn += state.players[state.player].cards[i].points;
+            }
+            const players = [...state.players];
+            players[state.player] = {
+                ...state.players[state.player],
+                score: state.players[state.player].score + thisTurn,
+                cards: [],
+            }
+
+            c(state.bestTurn[1] < thisTurn);
+            c([state.player, thisTurn]);
+            c(state.bestTurn);
+
             const newState = {
                 ...state,
                 player,
                 round: newRound,
+                players,
                 phase: (state.round === action.rounds && player === 0) ? 3 : 1,
                 card: action.next,
+                bestTurn: (state.bestTurn[1] < thisTurn) ? [state.player, thisTurn] : state.bestTurn,
+                worstTurn: (state.worstTurn[1] > thisTurn) ? [state.player, thisTurn] : state.worstTurn,
+                mvp: (state.players[state.player].score > state.players[state.mvp].score) ? state.player : state.mvp,
+                lvp: (state.players[state.player].score < state.players[state.lvp].score) ? state.player : state.lvp,
             }
+
+            c("bestTurn", newState.bestTurn);
+            c("worstTurn", newState.worstTurn);
+            c("mvp", newState.mvp);
+            c("lvp", newState.lvp);
 
             localStorage.setItem('state', JSON.stringify(newState));
             return newState;
@@ -106,13 +131,6 @@ const Game = () => {
                 cards: []
             });
         }
-        if (players.length % 2 === 1) {
-            players.push({
-                name: 'Player ' + (players.length + .5),
-                score: 0,
-                cards: []
-            });
-        }
 
         return {
             round: 1,
@@ -121,6 +139,10 @@ const Game = () => {
             teams: [0, 0],
             players,
             phase: 0,
+            bestTurn: [0, 0],
+            worstTurn: [0, 0],
+            mvp: 0,
+            lvp: 0,
         }
     });
 
@@ -209,7 +231,7 @@ const Game = () => {
 
     return (
         <>
-            <div className='container'>\
+            <div className='container'>
                 {state.phase === 1 || state.phase === 2 ? (
                     <div className="container2">
                         <div className='text' id='round'>Round</div>
@@ -249,23 +271,41 @@ const Game = () => {
                     </div>
                 ) : (
                     <div className='container2'>
-                        <div id='drumroll'>
-                            And the team with the Numbest Skulls is . . .
+                        <div id='drumroll' className='word'>
+                            And the team with<br />
+                            the Numbest Skulls is . . . .<br />
+                        </div>
+                        <div id='winner' className='word'>
+                            Team {state.teams[0] < state.teams[1] ? 'Evens' : 'Odds'}
+                        </div>
+
+                        <div id='mvpPlayer' className='word'>
+                            {state.players[state.mvp].name} <br />
+                            {state.players[state.mvp].score} points
+                        </div>
+                        <div id='lvpPlayer' className='word'>
+                            {state.players[state.lvp].name} <br />
+                            {state.players[state.lvp].score} points
+                        </div>
+                        <div id='bestTurn' className='word'>
+                            {state.players[state.bestTurn[0]].name} <br />
+                            {state.bestTurn[1]} points
+                        </div>
+                        <div id='worstTurn' className='word'>
+                            {state.players[state.worstTurn[0]].name} <br />
+                            {state.worstTurn[1]} points
+                        </div>
+
+                        <div id='oddscore' className='word'>{state.teams[0]}</div>
+                        <div id='evenscore' className='word'>{state.teams[1]}
                         </div>
                         <img src={best} id='best' />
                         <img src={worst} id='worst' />
                         <img src={mvp} id='mvp' />
                         <img src={lvp} id='lvp' />
-                        <img src={winner} id='winner' />
+                        <img src={scores} id='scores' />
                         <img src={cont} id='cont' />
                         <img src={endgame} id='endgame' onClick={() => quit()} />
-
-                        {/* <div>Game Over</div>
-                        <div>Team Evens: {state.teams[0]}</div>
-                        <div>Team Odds: {state.teams[1]}</div> */}
-                        {
-                            // continueGame onlick : button says => start p1's turn !!
-                        }
                     </div>
                 )}
             </div>

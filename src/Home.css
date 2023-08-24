@@ -5,8 +5,12 @@ body {
   --secondary: #fdbff5;
   --accent: #c10ba9;
 
-  --flagwidth: 40%;
+  --flagwidth: 45%;
   --flagmargin: -2vh;
+
+  --wordmargin: 16vh;
+  --wordwidth: 80%;
+  --wordsize: 2.8vh;
 
   font-family: "Itim", sans-serif;
   background: var(--background);
@@ -39,8 +43,8 @@ div.container {
 img {
   position: absolute;
   width: 40vh;
-  margin-left: 1vh;
-  margin-right: 1vh;
+  /* margin-left: 1vh;
+  margin-right: 1vh; */
   /* border: 1px solid black; */
 }
 
@@ -59,7 +63,7 @@ img {
 }
 
 #play {
-  left: 23vh;
+  left: 26vh;
   top: 29vh;
   width: 17vh;
 }
@@ -69,28 +73,32 @@ img {
 }
 
 #inputs {
+  display: blockw;
   position: absolute;
-  top: 62vh;
+  top: 61vh;
   width: 85%;
+  height: 12.5vh;
 
-  font-size: large;
+  font-size: 1.75vh;
   color: white; 
+  
 }
 
 #rounds {
-  position: absolute;
   left: 18vh;
 }
 
 #seconds {
   width: 6vh;
-  top: 5vh;
-  color: white;
+  top: 3vh;
+  left: -5vh;
 }
 
 #est-time {
   left: 15vh;
-  top: 7vh;
-  font-size: 2vh;
+  top: 6vh;
+  width: 15vh;
+  font-size: 3vh;
   color: white;
+  /* border: 1px solid black; */
 }

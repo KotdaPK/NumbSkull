@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Button, TextField, IconButton } from '@mui/material';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import NumbSkull from './assets/NumbSkull.svg';
 import setup from './assets/setup.svg';
@@ -16,9 +16,9 @@ import SettingsRoundedIcon from '@mui/icons-material/SettingsRounded';
 import './Home.css';
 
 const Home = () => {
-    const [players, setPlayers] = React.useState(4);
-    const [rounds, setRounds] = React.useState(3);
-    const [seconds, setSeconds] = React.useState(90);
+    const [players, setPlayers] = React.useState(2);
+    const [rounds, setRounds] = React.useState(2);
+    const [seconds, setSeconds] = React.useState(2);
 
     // Players
     const handleIncrement = () => {
@@ -73,11 +73,11 @@ const Home = () => {
                         <span id="players">
                             <span>Players:</span>
                             <span className="players-controls">
-                                <IconButton onClick={handleDecrement}>
+                                <IconButton onClick={handleDecrement} sx={{ color: "white" }}>
                                     <KeyboardArrowLeftIcon />
                                 </IconButton>
                                 <span>{players}</span>
-                                <IconButton onClick={handleIncrement}>
+                                <IconButton onClick={handleIncrement} sx={{ color: "white" }}>
                                     <KeyboardArrowRightIcon />
                                 </IconButton>
                             </span>
@@ -86,11 +86,11 @@ const Home = () => {
                         <span id="rounds">
                             <span>Rounds:</span>
                             <span className="rounds-controls">
-                                <IconButton onClick={handleDecrement2}>
+                                <IconButton onClick={handleDecrement2} sx={{ color: "white" }}>
                                     <KeyboardArrowLeftIcon />
                                 </IconButton>
                                 <span>{rounds}</span>
-                                <IconButton onClick={handleIncrement2}>
+                                <IconButton onClick={handleIncrement2} sx={{ color: "white" }}>
                                     <KeyboardArrowRightIcon />
                                 </IconButton>
                             </span>
@@ -111,7 +111,7 @@ const Home = () => {
                     </div>
 
                     <div id="about">
-                        
+
                     </div>
                 </div>
             </div>
