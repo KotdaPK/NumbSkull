@@ -10,7 +10,7 @@ body {
 
   --wordmargin: 16vh;
   --wordwidth: 80%;
-  --wordsize: 2.8vh;
+  --wordsize: 2.5vh;
 
   font-family: "Itim", sans-serif;
   background: var(--background);
@@ -33,12 +33,9 @@ div.container {
   width: 42vh;
   height: 100px;
   position: relative;
-
 }
 
-#settingsicon {
 
-}
 
 img {
   position: absolute;
@@ -49,39 +46,46 @@ img {
 }
 
 #title {
-  top: 1vh;
-  left: -10vh;
-  width: 50vh;
+  top: 4vh;
+  left: 4vh;
+  width: 37vh;
 }
 
 #setup {
   top: 10vh;
-}
-
-#dont {
-  top: 30vh;
+  width: 106%;
 }
 
 #play {
   left: 26vh;
-  top: 29vh;
+  top: 33vh;
   width: 17vh;
 }
 
+#dont {
+  left: 1vh;
+  top: 36vh;
+  width: 100%;
+}
+
 #settings {
-  top: 54vh;
+  top: 63vh;
 }
 
 #inputs {
-  display: blockw;
   position: absolute;
-  top: 61vh;
+  top: 70vh;
   width: 85%;
   height: 12.5vh;
 
-  font-size: 1.75vh;
-  color: white; 
-  
+  font-size: 1.6vh;
+  color: white;
+}
+
+#settingsicon {
+  position: absolute;
+  top: -4.75vh;
+  right: -.5vh;
 }
 
 #rounds {
@@ -90,15 +94,25 @@ img {
 
 #seconds {
   width: 6vh;
-  top: 3vh;
+  top: 13vh;
   left: -5vh;
 }
 
 #est-time {
   left: 15vh;
   top: 6vh;
-  width: 15vh;
-  font-size: 3vh;
+  width: 9vh;
+  font-size: 2vh;
   color: white;
+  /* border: 1px solid black; */
+}
+
+#about {
+  position: absolute;
+  top: 90vh;
+  right: 3vh;
+  font-size: 1.5vh;
+  text-align: right;
+  width: 70%;
   /* border: 1px solid black; */
 }

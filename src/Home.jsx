@@ -16,7 +16,7 @@ import SettingsRoundedIcon from '@mui/icons-material/SettingsRounded';
 import './Home.css';
 
 const Home = () => {
-    const [players, setPlayers] = React.useState(2);
+    const [players, setPlayers] = React.useState(4);
     const [rounds, setRounds] = React.useState(2);
     const [seconds, setSeconds] = React.useState(2);
 
@@ -25,7 +25,7 @@ const Home = () => {
         setPlayers((n) => n + 2);
     };
     const handleDecrement = () => {
-        setPlayers((n) => n - 2);
+        setPlayers((n) => Math.max(n - 2, 4));
     };
 
     // Rounds
@@ -33,11 +33,18 @@ const Home = () => {
         setRounds((n) => n + 1);
     };
     const handleDecrement2 = () => {
-        setRounds((n) => n - 1);
+        setRounds((n) => Math.max(n - 1, 1));
     };
 
     // Seconds
     const handleSecondsChange = (event) => {
+        // const inputValue = parseInt(event.target.value, 10);
+        // if (!isNaN(inputValue)) {
+        //     setSeconds(inputValue);
+        // } else {
+        //     setSeconds(0);
+        // }
+
         setSeconds(parseInt(event.target.value, 10));
     };
 
@@ -66,10 +73,11 @@ const Home = () => {
                     <img src={dont} id="dont" />
                     <img src={play} id="play" onClick={begin} />
                     <img src={settings} id="settings" />
-                    <KeyboardArrowRightIcon id="settingsicon" />
+
 
 
                     <div id="inputs">
+                        <SettingsRoundedIcon id="settingsicon" />
                         <span id="players">
                             <span>Players:</span>
                             <span className="players-controls">
@@ -102,7 +110,7 @@ const Home = () => {
                                 label="Seconds"
                                 type="number"
                                 variant="outlined"
-                                value={seconds}
+                                value={isNaN(seconds) ? 0 : seconds}
                                 onChange={handleSecondsChange}
                             />
 
@@ -111,7 +119,7 @@ const Home = () => {
                     </div>
 
                     <div id="about">
-
+                        About: In the beginning God created the heavens and the earth. Now the earth was formless and empty, darkness was over the surface of the deep
                     </div>
                 </div>
             </div>

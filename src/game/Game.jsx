@@ -23,7 +23,9 @@ import scores from '../assets/scores.svg';
 import endgame from '../assets/endgame.svg';
 import cont from '../assets/continue.svg';
 
-
+// +1 round button
+// click area
+// mvp lvp bugged
 
 const c = console.log;
 var deck;
@@ -37,7 +39,12 @@ function reducer(state, action) {
                 card: action.next,
             };
         case 'next':
-            return { ...state, phase: 2, };
+            c("check added", action.added); // this shit runs 2x idk y !!
+            return {
+                ...state,
+                phase: 2,
+                addedRounds: state.addedRounds + action.added,
+            };
         case 'end': {
             let player = (state.player + 1) % state.players.length;
 
@@ -56,27 +63,21 @@ function reducer(state, action) {
                 cards: [],
             }
 
-            c(state.bestTurn[1] < thisTurn);
-            c([state.player, thisTurn]);
-            c(state.bestTurn);
-
+            c("added", state.addedRounds);
+            c("rounds", action.rounds);
+            c("total", state.addedRounds + action.rounds);
             const newState = {
                 ...state,
                 player,
                 round: newRound,
                 players,
-                phase: (state.round === action.rounds && player === 0) ? 3 : 1,
+                phase: (state.round === (action.rounds + state.addedRounds) && player === 0) ? 3 : 1,
                 card: action.next,
                 bestTurn: (state.bestTurn[1] < thisTurn) ? [state.player, thisTurn] : state.bestTurn,
                 worstTurn: (state.worstTurn[1] > thisTurn) ? [state.player, thisTurn] : state.worstTurn,
                 mvp: (state.players[state.player].score > state.players[state.mvp].score) ? state.player : state.mvp,
                 lvp: (state.players[state.player].score < state.players[state.lvp].score) ? state.player : state.lvp,
             }
-
-            c("bestTurn", newState.bestTurn);
-            c("worstTurn", newState.worstTurn);
-            c("mvp", newState.mvp);
-            c("lvp", newState.lvp);
 
             localStorage.setItem('state', JSON.stringify(newState));
             return newState;
@@ -143,6 +144,7 @@ const Game = () => {
             worstTurn: [0, 0],
             mvp: 0,
             lvp: 0,
+            addedRounds: 0,
         }
     });
 
@@ -151,11 +153,11 @@ const Game = () => {
         dispatch({ type: 'start', next: nextCard() });
     }
     const nextTurn = () => { // Player's turn
-        dispatch({ type: 'next' });
+        dispatch({ type: 'next', added: 0 });
         setTimerStarted(true);
     }
     const endTurn = () => { // Store Player's turn and prepare for next turn   
-        dispatch({ type: 'end', next: nextCard(), rounds: seed.rounds, });
+        dispatch({ type: 'end', next: nextCard(), rounds: seed.rounds + state.addedRounds, });
         nextCard();
     }
 
@@ -165,6 +167,14 @@ const Game = () => {
         localStorage.removeItem('seed');
         navigate('/'); // sure? !!
     }
+    const addRound = () => {
+        if (!timerStarted) {
+            dispatch({ type: 'next', added: 1 });
+            setTimerStarted(true);
+        }
+
+    }
+
 
     const play = (p) => {
         dispatch({
@@ -304,7 +314,7 @@ const Game = () => {
                         <img src={mvp} id='mvp' />
                         <img src={lvp} id='lvp' />
                         <img src={scores} id='scores' />
-                        <img src={cont} id='cont' />
+                        <img src={cont} id='cont' onClick={() => addRound()} />
                         <img src={endgame} id='endgame' onClick={() => quit()} />
                     </div>
                 )}

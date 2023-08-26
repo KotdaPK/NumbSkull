@@ -11,7 +11,7 @@ img.fuse {
 img.quit {
     left: 0vh;
     width: 30vh;
-    top: 70vh;
+    top: 73vh;
     border-radius: 0% 0% 1000% 0%;
 }
 
@@ -133,6 +133,7 @@ div.word {
     top: 50vh;
     right: var(--flagmargin);
     width: var(--flagwidth);
+    
 }
 #worst {
     top: 20vh;
@@ -146,6 +147,7 @@ div.word {
     right: var(--wordmargin);
     font-size: var(--wordsize);
     text-align: left;
+    color: white;
 }
 
 #lvpPlayer {
@@ -153,6 +155,7 @@ div.word {
     right: var(--wordmargin);
     font-size: var(--wordsize);
     text-align: left;
+    color: white;
 }
 
 #bestTurn {
@@ -160,6 +163,7 @@ div.word {
     left: var(--wordmargin);
     font-size: var(--wordsize);
     text-align: right;
+    color: white;
 }
 
 #worstTurn {
@@ -167,6 +171,7 @@ div.word {
     left: var(--wordmargin);
     font-size: var(--wordsize);
     text-align: right;
+    color: white;
 }
 
 
