@@ -2,7 +2,6 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import Game from "./game/Game";
-//import Game2 from "./game/Game2";
 import Home from "./Home"; 
 import Lost from "./Lost";
 

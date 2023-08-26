@@ -18,7 +18,7 @@ import './Home.css';
 const Home = () => {
     const [players, setPlayers] = React.useState(4);
     const [rounds, setRounds] = React.useState(2);
-    const [seconds, setSeconds] = React.useState(2);
+    const [seconds, setSeconds] = React.useState(90);
 
     // Players
     const handleIncrement = () => {
@@ -38,13 +38,6 @@ const Home = () => {
 
     // Seconds
     const handleSecondsChange = (event) => {
-        // const inputValue = parseInt(event.target.value, 10);
-        // if (!isNaN(inputValue)) {
-        //     setSeconds(inputValue);
-        // } else {
-        //     setSeconds(0);
-        // }
-
         setSeconds(parseInt(event.target.value, 10));
     };
 
@@ -59,7 +52,7 @@ const Home = () => {
         navigate('/game');
     };
 
-    const estimatedTime = Math.round(rounds * players * (seconds + 15) / 60);
+    const estimatedTime = Math.round(rounds * players * (seconds + 15) / 60); // isNan!!
 
     localStorage.getItem('react') !== null; //!!
 
@@ -110,7 +103,7 @@ const Home = () => {
                                 label="Seconds"
                                 type="number"
                                 variant="outlined"
-                                value={isNaN(seconds) ? 0 : seconds}
+                                value={seconds}
                                 onChange={handleSecondsChange}
                             />
 

@@ -23,9 +23,7 @@ import scores from '../assets/scores.svg';
 import endgame from '../assets/endgame.svg';
 import cont from '../assets/continue.svg';
 
-// +1 round button
-// click area
-// mvp lvp bugged
+// click area !! aint no way
 
 const c = console.log;
 var deck;
@@ -39,7 +37,6 @@ function reducer(state, action) {
                 card: action.next,
             };
         case 'next':
-            c("check added", action.added); // this shit runs 2x idk y !!
             return {
                 ...state,
                 phase: 2,
@@ -63,9 +60,6 @@ function reducer(state, action) {
                 cards: [],
             }
 
-            c("added", state.addedRounds);
-            c("rounds", action.rounds);
-            c("total", state.addedRounds + action.rounds);
             const newState = {
                 ...state,
                 player,
@@ -111,7 +105,16 @@ function reducer(state, action) {
 }
 
 
+
 const Game = () => {
+
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if(localStorage.getItem("seed") === null)
+            navigate('/');
+    }, []);
+
     const seed = JSON.parse(localStorage.getItem('seed'));
 
     const [index, setIndex] = useState(() => {
@@ -153,26 +156,26 @@ const Game = () => {
         dispatch({ type: 'start', next: nextCard() });
     }
     const nextTurn = () => { // Player's turn
+        c()
         dispatch({ type: 'next', added: 0 });
         setTimerStarted(true);
     }
     const endTurn = () => { // Store Player's turn and prepare for next turn   
-        dispatch({ type: 'end', next: nextCard(), rounds: seed.rounds + state.addedRounds, });
+        dispatch({ type: 'end', next: nextCard(), rounds: seed.rounds, });
         nextCard();
     }
 
-    const navigate = useNavigate();
+    
     const quit = () => {
-        localStorage.removeItem('state');
-        localStorage.removeItem('seed');
-        navigate('/'); // sure? !!
+        if (confirm("Are you sure?") == true) {
+            localStorage.removeItem('state');
+            localStorage.removeItem('seed');
+            navigate('/');
+        }
     }
     const addRound = () => {
-        if (!timerStarted) {
-            dispatch({ type: 'next', added: 1 });
-            setTimerStarted(true);
-        }
-
+        dispatch({ type: 'next', added: 1 });
+        setTimerStarted(true);
     }
 
 
@@ -231,9 +234,7 @@ const Game = () => {
             deck = rawdeck;
             shuffledeck();
         }
-
-        // if (localStorage.getItem('seed') === null)
-        //     navigate('/'); !!
+        
         startGame();
 
     }, []);
