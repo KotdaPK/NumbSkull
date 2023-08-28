@@ -8,7 +8,7 @@ body {
   --flagwidth: 45%;
   --flagmargin: -2vh;
 
-  --wordmargin: 16vh;
+  --wordmargin: 21vh;
   --wordwidth: 80%;
   --wordsize: 2.5vh;
 
@@ -36,7 +36,6 @@ div.container {
 }
 
 
-
 img {
   position: absolute;
   width: 40vh;
@@ -47,8 +46,8 @@ img {
 
 #title {
   top: 4vh;
-  left: 4vh;
-  width: 37vh;
+  left: 3vh;
+  width: 38vh;
 }
 
 #setup {

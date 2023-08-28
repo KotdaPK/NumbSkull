@@ -110,12 +110,12 @@ div.word {
 }
 
 #drumroll {
-    top: 3vh;
+    top: -4vh;
     font-size: 2.5vh;
 }
 
 #winner {
-    top: 9vh;
+    top: 3vh;
     font-size: 6vh;
 }
 
@@ -146,7 +146,7 @@ div.word {
 
 
 #mvpPlayer {
-    top: 21vh;
+    top: 14.5vh;
     right: var(--wordmargin);
     font-size: var(--wordsize);
     text-align: left;
@@ -154,7 +154,7 @@ div.word {
 }
 
 #lvpPlayer {
-    top: 64vh;
+    top: 57.5vh;
     right: var(--wordmargin);
     font-size: var(--wordsize);
     text-align: left;
@@ -162,7 +162,7 @@ div.word {
 }
 
 #bestTurn {
-    top: 64vh;
+    top: 57.5vh;
     left: var(--wordmargin);
     font-size: var(--wordsize);
     text-align: right;
@@ -170,7 +170,7 @@ div.word {
 }
 
 #worstTurn {
-    top: 21vh;
+    top: 14.5vh;
     left: var(--wordmargin);
     font-size: var(--wordsize);
     text-align: right;
@@ -184,12 +184,12 @@ div.word {
 }
 
 #oddscore {
-    top: 30vh;
+    top: 23vh;
     width: 80%;
 }
 
 #evenscore {
-    top: 55vh;
+    top: 48vh;
     width: 80%;
 }
 

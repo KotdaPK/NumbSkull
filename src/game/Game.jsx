@@ -14,6 +14,7 @@ import long from '../assets/long.svg';
 import fail from '../assets/fail.svg';
 import quitgame from '../assets/quit.svg';
 import startround from '../assets/startround.svg';
+import dont from '../assets/dont.svg';
 
 import best from '../assets/best.svg';
 import worst from '../assets/worst.svg';
@@ -257,6 +258,11 @@ const Game = () => {
                         {state.phase === 1 ? (
                             <>
                                 {/* card history previous turn */}
+                                {/*
+                                you can say the short word if they guess it
+                                and things like
+                                */}
+                                <img src={dont} id="dont" />
                                 <img src={quitgame} className="quit" onClick={() => quit()} />
                                 <img src={startround} className="startround" onClick={nextTurn} />
                             </>
@@ -275,7 +281,6 @@ const Game = () => {
 
                                 <div className='word' id='shortword' onClick={() => play(1)}>{state.card.s}</div>
                                 <div className='word' id='longword' onClick={() => play(3)}>{state.card.l}</div>
-
                             </>
                         )}
 
