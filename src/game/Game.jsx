@@ -15,6 +15,7 @@ import fail from '../assets/fail.svg';
 import quitgame from '../assets/quit.svg';
 import startround from '../assets/startround.svg';
 import dont from '../assets/dont.svg';
+import tips from '../assets/tips.svg';
 
 import best from '../assets/best.svg';
 import worst from '../assets/worst.svg';
@@ -112,7 +113,7 @@ const Game = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        if(localStorage.getItem("seed") === null)
+        if (localStorage.getItem("seed") === null)
             navigate('/');
     }, []);
 
@@ -166,7 +167,7 @@ const Game = () => {
         nextCard();
     }
 
-    
+
     const quit = () => {
         if (confirm("Are you sure?") == true) {
             localStorage.removeItem('state');
@@ -188,6 +189,14 @@ const Game = () => {
             next: nextCard(),
         });
     }
+
+    // const goBack = () => {
+    //     dispatch({
+    //         type: 'back',
+    //     });
+    // }
+    // add turn score to total at end of round
+
     const nextCard = () => {
         setIndex((index + 1) % deck.length);
         if (index === deck.length - 1)
@@ -235,7 +244,7 @@ const Game = () => {
             deck = rawdeck;
             shuffledeck();
         }
-        
+
         startGame();
 
     }, []);
@@ -258,10 +267,7 @@ const Game = () => {
                         {state.phase === 1 ? (
                             <>
                                 {/* card history previous turn */}
-                                {/*
-                                you can say the short word if they guess it
-                                and things like
-                                */}
+                                <img src={tips} id="tips" />
                                 <img src={dont} id="dont" />
                                 <img src={quitgame} className="quit" onClick={() => quit()} />
                                 <img src={startround} className="startround" onClick={nextTurn} />

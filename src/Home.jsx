@@ -67,8 +67,6 @@ const Home = () => {
                     <img src={play} id="play" onClick={begin} />
                     <img src={settings} id="settings" />
 
-
-
                     <div id="inputs">
                         <SettingsRoundedIcon id="settingsicon" />
                         <span id="players">
@@ -112,7 +110,8 @@ const Home = () => {
                     </div>
 
                     <div id="about">
-                        About: In the beginning God created the heavens and the earth. Now the earth was formless and empty, darkness was over the surface of the deep
+                        made by Kotda <br />
+                        <a href="https://youtu.be/m-zfjWEQUow">Instructional Video</a>
                     </div>
                 </div>
             </div>

@@ -5,6 +5,12 @@ img.fuse {
     animation-duration: 90s; */
 }
 
+#tips {
+    right: 1vh;
+    top: 22vh;
+    width: 90%;
+}
+
 img.quit {
     left: 0vh;
     width: 30vh;

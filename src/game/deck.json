@@ -114,7 +114,7 @@
     {"s": "Ring", "l": "Nosering"},
     {"s": "Dog", "l": "Doghouse"},
     {"s": "Storm", "l": "Brainstorm"},
-    {"s": "Hang", "l": "Hangover"},
+    {"s": "Over", "l": "Hangover"},
     {"s": "Car", "l": "Cartwheel"},
     {"s": "Rattle", "l": "Rattlesnake"},
     {"s": "Fast", "l": "Breakfast"},
@@ -221,5 +221,5 @@
     {"s": "Rice", "l": "Basmati Rice"},
     {"s": "Mirror", "l": "Vanity Mirror"},
     {"s": "Window", "l": "Bay Window"},
-    {"s": "Door", "l": "Sliding Door"},
+    {"s": "Door", "l": "Sliding Door"}
 ]
