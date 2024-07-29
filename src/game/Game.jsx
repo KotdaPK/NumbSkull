@@ -295,14 +295,16 @@ const Game = () => {
 						<div className='text' id='roundnum'>{state.round}</div>
 						<div className='text' id='player'>Player</div>
 						<div className='text' id='playernum'>{state.player + 1}</div>
-						<img className='fuse' src={fuse} />
+						{/* <img className='fuse' src={fuse} style={{ width: `${roundTime}%`} /> */}
+						<img className='fuse' src={fuse} style={{ height: 'auto', transform: `scaleX(${roundTime / 100})`, transformOrigin: 'left center' }} />
+
 						<div className='text' id='time'>{roundTime} s</div>
 
 						{state.phase === 1 ? (
 							<>
 								<img src={tips} id="tips" />
 								<img src={dont} id="dont" />
-								<img src={quitgame} className="quit" onClick={() => quit()} />
+								<img src={quitgame} className="quit" onClick={() => quit()}/>
 								<img src={startround} className="startround" onClick={nextTurn} />
 							</>
 						) : (
