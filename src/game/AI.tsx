@@ -1,17 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getVertexAI, getGenerativeModel } from "firebase/vertexai-preview";
-
-// TODO(developer) Replace the following with your app's Firebase configuration
-// See: https://firebase.google.com/docs/web/learn-more#config-object
-const firebaseConfig = {
-  apiKey: "AIzaSyD-nnM08OD5pTpwa5-H11HpMOmHbiU7g80",
-  authDomain: "numbskull-kotda.firebaseapp.com",
-  projectId: "numbskull-kotda",
-  storageBucket: "numbskull-kotda.appspot.com",
-  messagingSenderId: "752038215210",
-  appId: "1:752038215210:web:19aef154a3c36712be0d53",
-  measurementId: "G-JCWH4PWXGH"
-};
+import firebaseConfig from "./firebaseConfig";
 
 // Initialize FirebaseApp
 const firebaseApp = initializeApp(firebaseConfig);
