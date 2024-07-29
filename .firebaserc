@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "numbskull-kotda"
-  }
+    "production": "numbskull-kotda"
+  },
+  "targets": {},
+  "etags": {},
+  "dataconnectEmulatorConfig": {}
 }
