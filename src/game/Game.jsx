@@ -217,11 +217,31 @@ const Game = () => {
 	// }
 	// add turn score to total at end of round
 
+	const initializeDeck = async () => {
+		if (localStorage.getItem("deck") !== null) {
+			c("loading state")
+			setIndex(JSON.parse(localStorage.getItem('index')));
+			deck = JSON.parse(localStorage.getItem('deck'));
+		} else {
+			c("generating deck")
+			deck = await generateDeck();
+			if (deck === null)
+				deck = rawdeck;
+			localStorage.setItem('index', JSON.stringify(0));
+			localStorage.setItem('deck', JSON.stringify(deck));
+			shuffledeck();
+		}
+		shuffledeck();
+		startGame();
+	};
+
 	const nextCard = () => {
 		c("next card")
+		if ( deck == undefined || deck.length === 0 )
+			initializeDeck();
 		setIndex((index + 1) % deck.length);
 		if (index === deck.length - 1)
-			shuffledeck();
+			initializeDeck();
 		localStorage.setItem('index', JSON.stringify(index));
 		return deck[index];
 	}
@@ -259,26 +279,6 @@ const Game = () => {
 
 	const [start, setStart] = useState(false);
 	useEffect(() => {
-		const initializeDeck = async () => {
-			if (localStorage.getItem("deck") !== null) {
-				c("loading state")
-				setIndex(JSON.parse(localStorage.getItem('index')));
-				deck = JSON.parse(localStorage.getItem('deck'));
-			} else {
-				c("generating deck")
-				try {
-					deck = await generateDeck(); // Await the deck generation
-					if (deck === null)
-						deck = rawdeck;
-				} catch (error) {
-					deck = rawdeck;
-				}
-				shuffledeck();
-			}
-			shuffledeck();
-			startGame();
-		};
-
 		if (!start) {
 			setStart(true);
 			initializeDeck();

@@ -23,7 +23,22 @@ async function generateDeck() {
     Example Card: {"s": "Sun", "l": "Sunglasses"}
     Each Card should be separated by a comma.
     Surround the cards with square brackets.
-    This is for a guessing game. So, the cards should be diverse and not too easy or too hard to guess.
+    This is for a guessing game. So, the cards should be diverse and not too easy/simple or too hard/complicated to guess.
+    Examples of cards that are too easy or simple: 
+    {"s": "Cold", "l": "Coldness"}
+    {"s": "Good", "l": "Goodness"}
+    {"s": "Technology", "l": "Technological"}
+    {"s": "Ocean", "l": "Oceanic"}
+    {"s": "Europe", "l": "European"}
+    {"s": "Planet", "l": "Planetary"}
+
+    Examples of cards that are too hard or complicated:
+    {"s": "Failure", "l": "Failure is not an option"} 
+
+    Examples of good cards:
+    {"s": "Stone", "l": "Stonehenge"} 
+
+
   `;
   const result = await model.generateContent(prompt);
   const responseText = await result.response.text(); // Await the response text
