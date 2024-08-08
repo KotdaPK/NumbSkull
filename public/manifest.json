@@ -4,8 +4,8 @@
   "description": "Digital version of poetry for neandrathals",
   "icons": [
     {
-      "src": "vite.svg",
-      "sizes": "192x192",
+      "src": "skullemoji.png",
+      "sizes": "1024x1024",
       "type": "image/png"
     }
   ],
